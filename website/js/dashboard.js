@@ -589,6 +589,10 @@ function speakAlertStatus(status) {
   // Only speak if we are actually on the Dashboard page (checking for a unique dashboard element)
   if (!document.getElementById('aiHealthIntelligence')) return;
 
+  // Do not speak if the user is actively viewing the Sensors or Charts sections
+  const currentHash = window.location.hash;
+  if (currentHash === '#sensorCards' || currentHash === '#chartsSection') return;
+
   if (status === lastAlertStatus) return;
   lastAlertStatus = status;
 
