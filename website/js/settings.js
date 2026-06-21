@@ -5,15 +5,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Load existing values
   const tokenInput = document.getElementById('settingBlynkToken');
+  const geminiInput = document.getElementById('settingGeminiKey');
   const cowNameInput = document.getElementById('settingCowName');
   const cowBreedInput = document.getElementById('settingCowBreed');
 
   const savedToken = localStorage.getItem('blynk_auth_token');
+  const savedGeminiKey = localStorage.getItem('gemini_api_key');
   const savedCowName = localStorage.getItem('cow_name');
   const savedCowBreed = localStorage.getItem('cow_breed');
 
   if (tokenInput && savedToken && savedToken !== 'YOUR_AUTH_TOKEN') {
     tokenInput.value = savedToken;
+  }
+  if (geminiInput && savedGeminiKey) {
+    geminiInput.value = savedGeminiKey;
   }
   if (cowNameInput && savedCowName) {
     cowNameInput.value = savedCowName;
@@ -26,12 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSaveApi = document.getElementById('btnSaveApi');
   if (btnSaveApi) {
     btnSaveApi.addEventListener('click', () => {
-      const val = tokenInput.value.trim();
-      if (val) {
-        localStorage.setItem('blynk_auth_token', val);
+      const blynkVal = tokenInput ? tokenInput.value.trim() : '';
+      const geminiVal = geminiInput ? geminiInput.value.trim() : '';
+      
+      let savedAnything = false;
+      
+      if (blynkVal) {
+        localStorage.setItem('blynk_auth_token', blynkVal);
+        savedAnything = true;
+      }
+      
+      if (geminiVal) {
+        localStorage.setItem('gemini_api_key', geminiVal);
+        savedAnything = true;
+      }
+      
+      if (savedAnything) {
         showSettingsToast('API Configuration Saved!', 'success');
       } else {
-        showSettingsToast('Please enter a valid token.', 'error');
+        showSettingsToast('Please enter valid keys/tokens.', 'error');
       }
     });
   }
