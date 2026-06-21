@@ -578,6 +578,9 @@ function updatePredictiveAnalytics(vitals) {
 // ============================================================
 
 function speakAlertStatus(status) {
+  // Only speak if we are actually on the Dashboard page (checking for a unique dashboard element)
+  if (!document.getElementById('aiHealthIntelligence')) return;
+
   if (status === lastAlertStatus) return;
   lastAlertStatus = status;
 
