@@ -69,7 +69,14 @@ The frontend is built using standard, modern Vanilla Web Technologies (HTML5, CS
 - Open `index.html` in any modern web browser to view the landing page.
 - Navigate to `dashboard.html` to see the live telemetry interface and `alerts.html` to view safety diagnostics.
 
-### 2. Running the Hardware Simulation
+### 2. Deploying to Vercel
+The project is configured for zero-config deployment to **Vercel** using the root-level [vercel.json](file:///c:/Users/USER/OneDrive/Desktop/animal/vercel.json):
+- Push the repository to GitHub, GitLab, or Bitbucket.
+- Import the repository in your [Vercel Dashboard](https://vercel.com/dashboard).
+- Vercel will automatically read [vercel.json](file:///c:/Users/USER/OneDrive/Desktop/animal/vercel.json) and serve the `website/` directory as the output directory.
+- Clean URLs are active, meaning paths like `/dashboard.html` will automatically route and redirect to clean paths like `/dashboard`.
+
+### 3. Running the Hardware Simulation
 To run the virtual hardware node:
 1. Open the [Wokwi IoT Simulator](https://wokwi.com).
 2. Create or import a project, and load the wiring configuration from `wokwi/diagram.json` and code from `wokwi/sketch.ino`.
