@@ -97,6 +97,14 @@ async function fetchBlynkConnection(token) {
 async function pollBlynkData() {
   if (isFetching) return;
   
+  // Pause fetching if Live Monitoring toggle is turned off
+  const liveToggle = document.getElementById('liveMonitoringToggle');
+  if (liveToggle && !liveToggle.checked) {
+    const blynkStatusText = document.getElementById('blynkConnectionText');
+    if (blynkStatusText) blynkStatusText.textContent = 'PAUSED';
+    return;
+  }
+  
   const token = getBlynkToken();
   if (!token || token === 'YOUR_AUTH_TOKEN' || token.trim() === '') {
     updateTokenStateUI(false);
