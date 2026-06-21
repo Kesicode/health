@@ -1000,7 +1000,9 @@ function setupEmergencyHandlers() {
 
   if (btnWhatsApp) {
     btnWhatsApp.addEventListener('click', () => {
-      showToast(`WhatsApp Broadcast: Diagnostic summary pushed to veterinary chat groups. Status: ${currentVitals.health}.`, 'info');
+      const msg = encodeURIComponent(`URGENT: FarmGuard Vitals Alert\nStatus: ${currentVitals.health}\nTemp: ${currentVitals.temp.toFixed(1)}°C\nHeart Rate: ${currentVitals.hr} BPM\nGas Level: ${currentVitals.gas} ppm`);
+      window.open(`https://wa.me/917025900705?text=${msg}`, '_blank');
+      showToast(`WhatsApp Broadcast: Diagnostic summary sent to +91 70259 00705.`, 'info');
     });
   }
 
