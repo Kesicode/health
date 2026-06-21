@@ -993,7 +993,8 @@ function setupEmergencyHandlers() {
 
   if (btnVet) {
     btnVet.addEventListener('click', () => {
-      showToast(`Emergency dispatch triggered to Veterinarian (Dr. Sarah). Diagnostics transmitted.`, 'error');
+      window.location.href = 'tel:+919947377395';
+      showToast(`Emergency dispatch triggered to Veterinarian (+91 99473 77395). Diagnostics transmitted.`, 'error');
     });
   }
 
