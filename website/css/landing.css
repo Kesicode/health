@@ -541,6 +541,27 @@
   100% { opacity: 0.3; transform: scaleY(0.8); }
 }
 
+.data-particle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--color-healthy, #22c55e);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px 2px rgba(34, 197, 94, 0.8);
+  animation: dataTravel 1.5s infinite linear;
+  z-index: 2;
+}
+
+@keyframes dataTravel {
+  0% { top: 0; opacity: 0; transform: translateX(-50%) scale(0.5); }
+  15% { opacity: 1; transform: translateX(-50%) scale(1); }
+  85% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { top: 100%; opacity: 0; transform: translateX(-50%) scale(0.5); }
+}
+
 #archEngine {
   animation: dataPulse 2.5s infinite;
 }
