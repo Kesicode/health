@@ -1455,6 +1455,23 @@ input:checked + .live-slider:before {
   transform: translateX(14px);
 }
 
+/* Clear All Button */
+.topbar-clear-btn {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.topbar-clear-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
 /* ============================================================
    AI HEALTH INTELLIGENCE SECTION STYLES
    ============================================================ */
