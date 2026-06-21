@@ -1767,6 +1767,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupReportModalHandlers();
   setupGeminiHandlers();
   
+  // Load and display animal name from settings
+  const dashAnimalName = document.getElementById('dashAnimalName');
+  if (dashAnimalName) {
+    dashAnimalName.textContent = localStorage.getItem('cow_name') || 'Livestock #1';
+  }
+  
   const token = getBlynkToken();
   const hasToken = (token && token !== 'YOUR_AUTH_TOKEN' && token.trim() !== '');
   
